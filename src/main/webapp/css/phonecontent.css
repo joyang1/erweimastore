@@ -1,0 +1,15 @@
+#product-intro{
+	width:1200px;
+}
+#product-left{
+	width:600px;
+	height:500px;
+	float: left;
+}
+#product-right{
+	width:600px;
+	float:right;
+}
+div {
+  display: block;
+}

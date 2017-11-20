@@ -1,0 +1,14 @@
+*{
+	font-size: 14px;
+	font-family: serif;
+	font-weight: 2px;
+}
+.errorfont{
+	color: red;
+	font-size: 12px;
+}
+.font{
+	font-family: cursive;
+	font-size: 14px;
+	font-weight: bold;
+}

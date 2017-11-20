@@ -1,0 +1,69 @@
+.p_list {
+  width: 1010px;
+  margin-left:180px;
+  overflow: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+.p_list ul {
+  width: 1020px;
+  clear: both;
+  overflow: hidden;
+}
+ul, ol, li {
+  list-style: none;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+user agent stylesheetul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+Inherited from body
+body, button, input, select, textarea {
+  font: 12px/1.125 Arial;
+  background: #fff;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+div {
+  display: block;
+}
+.p_list li {
+  float: left;
+  width: 240px;
+  height: 345px;
+  padding: 15px 0 0 5px;
+  margin-right: 10px;
+  color: #444;
+}
+
+Inherited from div.title
+.p_list li .title {
+  line-height: 20px;
+  padding: 10px 10px 0 10px;
+}
+.p_list li .img div {
+  position: absolute;
+}
