@@ -58,7 +58,7 @@
             <font class="errorfont">
                 <span id="codeerror"></span>
             </font> <br /> <input id="sm" class="btn btn-success btn-lg"
-                                                 type="submit" value="登陆" style="align: center" />
+                                                 type="button" value="登陆" style="align: center" />
         </div>
     </form>
 </div>
@@ -108,13 +108,12 @@
             //return false;
             //}
             else {
-                $('#sm').val("登陆中...");
                 return true;
             }
         });
     });
 
-    $(".sm").click(function() {
+    $("#sm").click(function() {
         var obj = $(this);
         $.ajax({
             url:'/checkcaptcha.do',
@@ -123,7 +122,8 @@
             dataType:'json',
             async:false,
             success:function(result) {
-                if(result.status == 1) {
+                if(result == 1) {
+                    $('#sm').val("登陆中...");
                     obj.parents('form').submit(); //验证码正确提交表单
                 }else{
                     $("#captchaImage").click();
@@ -131,6 +131,7 @@
                     setTimeout(function(){
                         $("#codeerror").empty();
                     },3000);
+                    return;
                 }
             },
             error:function(msg){

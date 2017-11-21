@@ -35,7 +35,7 @@ public class CaptchaController {
     {
         HttpSession session = request.getSession();
         String existCode = session.getAttribute("code").toString();
-        if(code.equals(existCode)){
+        if(code.equalsIgnoreCase(existCode)){
             return "1";
         }else {
             return "2";
