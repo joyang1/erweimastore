@@ -55,35 +55,24 @@
      class="easyui-accordion" style="width: 200px; height: 650px;">
     <div title="用户管理" data-options="iconCls:'icon-user',selected:true"
          style="overflow: auto; padding: 10px;">
-        <a href="#" onclick="addTab('管理员管理', 'admin-solve', 'icon-user')"><img
-                src="/EasyUI/themes/icons/user.png">管理员信息管理</a><br /> <br /> <a
-            href="#" onclick="addTab('用户管理', '', 'icon-user')"><img
-            src="/EasyUI/themes/icons/user.png">普通用户信息管理</a>
+        <a href="#" onclick="addTab('管理员管理', 'adminmanage.do', 'icon-user')"><img
+                src="/EasyUI/themes/icons/user.png">管理员信息管理</a><br /> <br />
     </div>
-    <div title="新闻管理" data-options="iconCls:'icon-save'"
+    <div title="店铺商品管理" data-options="iconCls:'icon-save'"
          style="padding: 10px;">
         <a href="#"
-           onclick="addTab('新闻管理', 'admin-newsmanage','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">新闻管理</a><br /> <br /> <a
-            href="#" onclick="addTab('新闻发布', 'admin-newsrelease')"><img
-            src="/EasyUI/themes/icons/filter.png">新闻发布</a><br /> <br />
+           onclick="addTab('店铺管理', '/store/storemanage.do','icon-filter')"><img
+                src="/EasyUI/themes/icons/filter.png">店铺管理</a><br /> <br /> <a
+            href="#" onclick="addTab('商品管理', '/product/productmanage.do')"><img
+            src="/EasyUI/themes/icons/filter.png">商品管理</a><br /> <br />
     </div>
-    <div title="留言管理" data-options="iconCls:'icon-save'"
+    <div title="店铺商品发布" data-options="iconCls:'icon-save'"
          style="padding: 10px;">
+        <a href="#" onclick="addTab('店铺发布', '/store/storepost.do','icon-filter')"><img
+                src="/EasyUI/themes/icons/filter.png">店铺发布</a><br /> <br />
         <a href="#"
-           onclick="addTab('留言管理', 'admin-gbookmanage','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">留言管理</a><br /> <br />
-    </div>
-    <div title="手机管理" data-options="iconCls:'icon-save'"
-         style="padding: 10px;">
-        <a href="#" onclick="addTab('手机管理', 'admin-phonemanage','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">手机管理</a><br /> <br />
-        <a href="#"
-           onclick="addTab('上传手机详细信息', 'admin-uploadphone','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">上传手机详细信息</a><br /> <br /> <a
-            href="#"
-            onclick="addTab('上传分数', 'admin-uploadphonetype','icon-filter')"><img
-            src="/EasyUI/themes/icons/filter.png">上传手机种类</a><br /> <br />
+           onclick="addTab('商品发布', 'admin-uploadphone','icon-filter')"><img
+                src="/EasyUI/themes/icons/filter.png">商品发布</a><br /> <br />
     </div>
 </div>
 <div data-options="region:'center',title:'信息中心',split:false" id="tt"

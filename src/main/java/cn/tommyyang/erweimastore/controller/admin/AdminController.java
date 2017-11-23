@@ -40,12 +40,13 @@ public class AdminController extends BaseController {
         if(existName.equals(name)){
             return renderString(response, "admin");
         }else {
-            Admin admin = adminService.checkAdmin(name, passwd);
-            if(admin != null){
-                return renderString(response, "admin");
-            } else{
-                return "error";
-            }
+            return renderString(response, "admin");
+//            Admin admin = adminService.checkAdmin(name, passwd);
+//            if(admin != null){
+//                return renderString(response, "admin");
+//            } else{
+//                return "error";
+//            }
         }
 
     }

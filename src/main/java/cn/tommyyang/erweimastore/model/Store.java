@@ -11,9 +11,17 @@ public class Store {
 
     private String url;
 
-    private String qrCode;
+    private String qrCodePath;
 
-    private String img;
+    public Store() {
+    }
+
+    public Store(Integer id, String name, String url, String qrCodePath) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.qrCodePath = qrCodePath;
+    }
 
     public Integer getId() {
         return id;
@@ -39,19 +47,11 @@ public class Store {
         this.url = url;
     }
 
-    public String getQrCode() {
-        return qrCode;
+    public String getQrCodePath() {
+        return qrCodePath;
     }
 
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
+    public void setQrCodePath(String qrCodePath) {
+        this.qrCodePath = qrCodePath;
     }
 }

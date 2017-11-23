@@ -4,10 +4,7 @@ import cn.tommyyang.erweimastore.dao.IAdminDao;
 import cn.tommyyang.erweimastore.dao.BaseDao;
 import cn.tommyyang.erweimastore.model.Admin;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Repository;
-
-import javax.annotation.Resource;
 
 /**
  * Created by TommyYang on 2017/11/21.

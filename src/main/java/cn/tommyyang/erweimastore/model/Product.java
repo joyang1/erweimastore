@@ -10,6 +10,7 @@ public class Product {
     private String picture;
     private float price;
     private float percent;
+    private String storeName;
 
     public Integer getId() {
         return id;
@@ -49,5 +50,13 @@ public class Product {
 
     public void setPercent(float percent) {
         this.percent = percent;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 }

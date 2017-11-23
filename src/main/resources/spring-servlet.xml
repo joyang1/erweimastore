@@ -14,7 +14,6 @@
     </context:component-scan>
 
     <context:component-scan base-package="cn.tommyyang.erweimastore.controller"></context:component-scan>
-    <context:component-scan base-package="cn.tommyyang.erweimastore.controller.admin"></context:component-scan>
 
     <mvc:annotation-driven/>
     <!--<mvc:resources mapping="/admin/**" location="/WEB-INF/jsp/"/>-->
