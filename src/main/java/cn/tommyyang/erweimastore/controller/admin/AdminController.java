@@ -29,25 +29,18 @@ public class AdminController extends BaseController {
 
     @RequestMapping(value = "/login.do", method = RequestMethod.POST)
     public String login(HttpServletRequest request, HttpServletResponse response,
-                     @RequestParam(value = "name", required = false) String name,
-                     @RequestParam(value = "passwd", required = false) String passwd) {
+                        @RequestParam(value = "name", required = false) String name,
+                        @RequestParam(value = "passwd", required = false) String passwd) {
         HttpSession session = request.getSession();
-        String existName = "";
-        if(session != null && session.getAttribute("name") != null){
-            existName = session.getAttribute("name").toString();
+        Admin admin = adminService.checkAdmin(name, passwd);
+        if (admin != null) {
+            session.setAttribute("admin", admin);
+            return renderString(response, "admin");
+        } else {
+            request.setAttribute("loginerror", "用户名或密码错误");
+            return "login";
         }
 
-        if(existName.equals(name)){
-            return renderString(response, "admin");
-        }else {
-            return renderString(response, "admin");
-//            Admin admin = adminService.checkAdmin(name, passwd);
-//            if(admin != null){
-//                return renderString(response, "admin");
-//            } else{
-//                return "error";
-//            }
-        }
 
     }
 

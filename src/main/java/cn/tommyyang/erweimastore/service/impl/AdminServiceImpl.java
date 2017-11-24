@@ -25,7 +25,12 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public Admin checkAdmin(String name, String passwd) {
         Admin admin = new Admin(name, passwd);
-        return adminDao.checkAdmin(admin);
+        try {
+            return adminDao.checkAdmin(admin);
+        } catch (Exception e) {
+            logger.error("check admin error:\n", e);
+        }
+        return null;
     }
 
 }

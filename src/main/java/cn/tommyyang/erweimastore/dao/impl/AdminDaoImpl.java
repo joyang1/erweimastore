@@ -3,6 +3,7 @@ package cn.tommyyang.erweimastore.dao.impl;
 import cn.tommyyang.erweimastore.dao.IAdminDao;
 import cn.tommyyang.erweimastore.dao.BaseDao;
 import cn.tommyyang.erweimastore.model.Admin;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 

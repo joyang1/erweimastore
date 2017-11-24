@@ -36,11 +36,11 @@
 </head>
 <body>
 <font style="color: red; font-size: 14px; font-weight: bold; margin-left: 400px;"></font>
-<form id="addstoreform" action="admin-addphone" enctype="multipart/form-data" method="post">
+<form id="addstoreform" action="/store/addstore.do" enctype="multipart/form-data" method="post">
     <br/>
     <div class="input-group">
         <span class="input-group-addon">店铺名</span> <input type="text"
-                                                          name="product.phonename" class="form-control"
+                                                          name="name" class="form-control"
                                                           placeholder="店铺名">
     </div>
     <br/>

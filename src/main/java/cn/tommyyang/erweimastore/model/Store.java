@@ -1,5 +1,9 @@
 package cn.tommyyang.erweimastore.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Date;
+
 /**
  * Created by TommyYang on 2017/11/21.
  */

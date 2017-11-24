@@ -75,13 +75,13 @@
                 $.messager.confirm('提示', '您确定要删除吗？', function(r){
                     if (r){
                         $.ajax({
-                            url : "admin-delnews",
+                            url : "/store/delstore.do",
                             type : "post",
                             dataType : "json",
                             async : false,
                             //传送请求数据
                             data : {
-                                "news.id" : row.nid,
+                                "id" : row.sid,
                             },
                             //根据返回值进行状态显示
                             success : function(data) {

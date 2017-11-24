@@ -7,8 +7,12 @@ public class Admin {
     private String name;
     private String nickname;
     private String passwd;
-    private Integer type;  //0-超级管理员 1-普通管理员
+    private String sex;
+    private String type;  //0-超级管理员 1-普通管理员
     private Integer status;  // 0-删除 1-正常
+
+    public Admin() {
+    }
 
     public Admin(String name, String passwd) {
         this.name = name;
@@ -47,11 +51,19 @@ public class Admin {
         this.passwd = passwd;
     }
 
-    public Integer getType() {
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 

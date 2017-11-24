@@ -37,9 +37,21 @@
     <title>管理员登陆界面</title>
 </head>
 <body>
+
+<%
+    Object loginerror = request.getAttribute("loginerror");
+    String logerror = "";
+    if(loginerror != null){
+        logerror = loginerror.toString();
+    }
+%>
+
 <div id="win">
     <form id="fr" action="/admin/login.do" method="post">
         <div id="loginform">
+            <font class="errorfont">
+                <span id="loginerror"><%=logerror%></span>
+            </font> <br />
             <div class="input-group">
                 <span class="input-group-addon">用户名</span> <input type="text"
                                                                   id="adminname" name="name" class="form-control" placeholder="输入用户名">
@@ -130,7 +142,7 @@
                     $("#codeerror").html('验证码错误！');
                     setTimeout(function(){
                         $("#codeerror").empty();
-                    },3000);
+                    },5000);
                     return;
                 }
             },
