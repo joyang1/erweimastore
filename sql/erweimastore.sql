@@ -21,3 +21,15 @@ CREATE TABLE `stores` (
   PRIMARY KEY (`id`),
   UNIQUE (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT '店铺表';
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL COMMENT '商品名 唯一',
+  `picturePath` varchar(500) NOT NULL COMMENT '商品图片路径',
+  `price` FLOAT NOT NULL COMMENT '商品价格',
+  `percent` FLOAT NOT NULL COMMENT '商品折扣',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0-删除 1-正常',
+  `storeName` varchar(100) NOT NULL COMMENT '所属店铺',
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT '商品表';

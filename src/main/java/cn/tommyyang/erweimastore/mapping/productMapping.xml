@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tommyyang.erweimastore.mapping.productMapping">
+    <!--<select id="getUserOrders" parameterType="int" resultMap="resultUserOrderList">-->
+    <!--select t_user.id,t_user.username,t_user.age,t_order.id o_id,t_order.orderName from t_user,t_order where t_user.id=t_order.userid and t_user.id=#{id}-->
+    <!--</select>-->
+    <!--<resultMap type="Order" id="resultUserOrderList">-->
+    <!--<id property="id" column="o_id"/>-->
+    <!--<result property="orderName" column="orderName"/>-->
+    <!--<association property="user" javaType="User">-->
+    <!--<id property="id" column="id" />-->
+    <!--<result property="name" column="name" />-->
+    <!--<result property="age" column="age" />-->
+    <!--</association>-->
+    <!--</resultMap>-->
+    <!-- 查询数据 -->
+    <select id="selectProduct"  resultType="cn.tommyyang.erweimastore.model.Product">
+        select * from products where name = #{name}
+    </select>
+
+    <select id="selectAllProduct"  resultType="cn.tommyyang.erweimastore.model.Product">
+        select * from products where status = 1
+    </select>
+
+    <!-- 增加数据 -->
+    <insert id="addProduct" parameterType="cn.tommyyang.erweimastore.model.Product" useGeneratedKeys="true" keyProperty="id">
+        insert into products(name,price,percent,picturePath,storeName) values(#{name},#{price},#{percent},#{picturePath},#{storeName})
+    </insert>
+
+    <!-- 删除数据 -->
+    <delete id="deleteProduct" parameterType="Integer">
+        delete from products where id = #{id}
+    </delete>
+
+</mapper>

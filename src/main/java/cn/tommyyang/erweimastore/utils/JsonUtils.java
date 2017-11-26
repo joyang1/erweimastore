@@ -1,5 +1,6 @@
 package cn.tommyyang.erweimastore.utils;
 
+import cn.tommyyang.erweimastore.model.Product;
 import cn.tommyyang.erweimastore.model.Store;
 
 import java.util.List;
@@ -17,6 +18,21 @@ public class JsonUtils {
             json += "{\"sid\":\"" + store.getId() + "\",\"sname\":\"" + store.getName() + "\",\"surl\":\""
                     + store.getUrl() + "\",\"scode\":\""
                     + store.getQrCodePath() + "\"},";
+        }
+        json = json.substring(0, json.length() - 1);
+        json += "]";
+        return json;
+    }
+
+    /*
+     * 获得商品信息的json数据
+     */
+    public static String getProductJson(List<Product> list) {
+        String json = "[";
+        for (Product product : list) {
+            json += "{\"pid\":\"" + product.getId() + "\",\"pname\":\"" + product.getName() + "\",\"purl\":\""
+                    + product.getPicturePath() + "\",\"pprice\":\"" + product.getPrice() + "\"" +
+                    ",\"ppercent\":\"" + product.getPercent() + "\",\"pstorename\":\"" + product.getStoreName() + "\"},";
         }
         json = json.substring(0, json.length() - 1);
         json += "]";

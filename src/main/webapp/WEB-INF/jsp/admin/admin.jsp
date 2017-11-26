@@ -71,7 +71,7 @@
         <a href="#" onclick="addTab('店铺发布', '/store/storepost.do','icon-filter')"><img
                 src="/EasyUI/themes/icons/filter.png">店铺发布</a><br /> <br />
         <a href="#"
-           onclick="addTab('商品发布', 'admin-uploadphone','icon-filter')"><img
+           onclick="addTab('商品发布', '/product/productpost.do','icon-filter')"><img
                 src="/EasyUI/themes/icons/filter.png">商品发布</a><br /> <br />
     </div>
 </div>

@@ -42,7 +42,7 @@
             margin-left: 30px;
         }
 
-        #picture {
+        #picturePath {
             margin-top: -130px;
             margin-left: 30px;
         }
@@ -55,33 +55,31 @@
 </head>
 <body>
 <font style="color: red; font-size: 14px; font-weight: bold; margin-left: 400px;"></font>
-<form id="addstoreform" action="admin-addphone" enctype="multipart/form-data" method="post">
+<form id="addproductform" action="/product/addproduct.do" enctype="multipart/form-data" method="post">
     <br/>
     <div class="input-group">
-        <span class="input-group-addon">店铺名</span> <input type="text"
-                                                          name="product.phonename" class="form-control"
-                                                          placeholder="店铺名">
+        <span class="input-group-addon">商品名</span> <input type="text"
+                                                          name="name" class="form-control"
+                                                          placeholder="商品名">
     </div>
     <div class="input-group">
-        <span class="input-group-addon">手机型号</span> <input type="text"
-                                                           name="product.phone" class="form-control" placeholder="手机型号">
+        <span class="input-group-addon">商品价格</span> <input type="text"
+                                                           name="price" class="form-control" placeholder="商品价格">
     </div>
     <div class="input-group">
-        <span class="input-group-addon">手机价格</span> <input type="text"
-                                                           name="product.price" class="form-control" placeholder="手机价格">
+        <span class="input-group-addon">商品折扣</span> <input type="text"
+                                                           name="percent" class="form-control" placeholder="商品折扣">
     </div>
 
     <div id="divimg">
         <font class="font">添加图片:</font>
-        <input type="file" name="picture" id="picture" label="图片">
+        <input type="file" name="productimg" id="picturePath" label="图片">
         <font style="color: red; font-size: 14px; font-weight: bold; margin-left: 400px;"></font>
     </div>
     <div id="divtype">
         <font class="font">选择加入店铺:</font>
         <select id="combobox" label="店铺">
-            <option>店铺一</option>
-            <option>店铺二</option>
-            <option>店铺三</option>
+
         </select>
     </div>
     <br/>
@@ -92,3 +90,27 @@
 </form>
 </body>
 </html>
+
+<script>
+    $.document.ready(
+        $(function(){
+            $.ajax(
+                {
+                    type: 'GET',
+                    url: '/store/getstorenames.do',
+                    dataType: 'json',
+                    success: function (data) {
+                        var html = '';
+                        var i=1;
+                        $('#combobox').empty();
+                        $.each(data.data,function (nameIndx, name) {
+                            html += '<option value='+ i +'>' + name + '</option>';
+                            i++;
+                        });
+                        $(html).appendTo('#combobox');
+                    }
+                }
+            );
+        })
+    );
+</script>>
