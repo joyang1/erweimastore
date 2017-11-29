@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by TommyYang on 2017/11/24.
@@ -52,5 +54,21 @@ public class StoreServiceImpl implements IStoreService {
             logger.error("delete store error:\n", e);
         }
         return false;
+    }
+
+    @Override
+    public Map<Integer, Store> getMap() {
+        try{
+            List<Store> stores = storeDao.get();
+            Map<Integer, Store> map = new HashMap<Integer, Store>();
+            for (Store store:stores) {
+                map.put(store.getId(), store);
+            }
+            return map;
+        }catch (Exception e){
+            logger.error("get store map error:\n", e);
+        }
+
+        return null;
     }
 }

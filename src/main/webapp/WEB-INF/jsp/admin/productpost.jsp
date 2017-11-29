@@ -42,9 +42,9 @@
             margin-left: 30px;
         }
 
-        #picturePath {
-            margin-top: -130px;
-            margin-left: 30px;
+        #picture {
+            margin-top: -25px;
+            margin-left: 80px;
         }
 
         .input-group {
@@ -73,12 +73,12 @@
 
     <div id="divimg">
         <font class="font">添加图片:</font>
-        <input type="file" name="productimg" id="picturePath" label="图片">
+        <input type="file" name="productimg" id="picture" label="图片"/>
         <font style="color: red; font-size: 14px; font-weight: bold; margin-left: 400px;"></font>
     </div>
     <div id="divtype">
         <font class="font">选择加入店铺:</font>
-        <select id="combobox" label="店铺">
+        <select id="combobox" name="storeid" label="店铺">
 
         </select>
     </div>
@@ -92,20 +92,18 @@
 </html>
 
 <script>
-    $.document.ready(
+    $(document).ready(
         $(function(){
             $.ajax(
                 {
                     type: 'GET',
-                    url: '/store/getstorenames.do',
+                    url: '/store/getstoreinfo.do',
                     dataType: 'json',
                     success: function (data) {
                         var html = '';
-                        var i=1;
                         $('#combobox').empty();
-                        $.each(data.data,function (nameIndx, name) {
-                            html += '<option value='+ i +'>' + name + '</option>';
-                            i++;
+                        $.each(data,function (index, item) {
+                            html += '<option value='+ item.sid +'>' + item.sname + '</option>';
                         });
                         $(html).appendTo('#combobox');
                     }
@@ -113,4 +111,4 @@
             );
         })
     );
-</script>>
+</script>

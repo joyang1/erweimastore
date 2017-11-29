@@ -29,7 +29,8 @@ CREATE TABLE `products` (
   `price` FLOAT NOT NULL COMMENT '商品价格',
   `percent` FLOAT NOT NULL COMMENT '商品折扣',
   `status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0-删除 1-正常',
-  `storeName` varchar(100) NOT NULL COMMENT '所属店铺',
+  `storeid` int(11) NOT NULL COMMENT '所属店铺',
   PRIMARY KEY (`id`),
-  UNIQUE (`name`)
+  UNIQUE (`name`),
+  FOREIGN KEY (storeid) REFERENCES stores(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '商品表';

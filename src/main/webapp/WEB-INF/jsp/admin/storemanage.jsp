@@ -48,7 +48,7 @@
         }, {
             field : 'sname',
             title : '店铺名称',
-            width : 80
+            width : 40
         },{
             field : 'surl',
             title : '店铺路径',

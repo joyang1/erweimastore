@@ -11,6 +11,10 @@ public interface IProductService {
 
     List<Product> get();
 
-    Boolean add(String name, float price, float percent, String picturePath, String storeName);
+    Product getOne(String name);
+
+    Boolean add(String name, float price, float percent, String picturePath, Integer storeid);
+
+    Boolean delete(Integer id);
 
 }

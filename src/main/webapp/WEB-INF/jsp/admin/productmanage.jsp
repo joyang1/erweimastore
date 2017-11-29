@@ -47,7 +47,7 @@
         }, {
             field : 'pname',
             title : '商品名称',
-            width : 80
+            width : 40
         },{
             field : 'purl',
             title : '商品路径',
@@ -63,7 +63,7 @@
         } ,{
             field : 'pstorename',
             title : '所属店铺',
-            width : 20
+            width : 40
         } ] ],
         toolbar : [ {
             iconCls : 'icon-add',
@@ -88,7 +88,8 @@
                             async : false,
                             //传送请求数据
                             data : {
-                                "id" : row.sid,
+                                "id" : row.pid,
+                                "path" : row.purl
                             },
                             //根据返回值进行状态显示
                             success : function(data) {

@@ -34,10 +34,37 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Boolean add(String name, float price, float percent, String picturePath, String storeName) {
+    public Product getOne(String name) {
         try {
-            Product product = new Product(name, picturePath, price, percent, storeName);
-            return productDao.add(product);
+            return productDao.getOne(name);
+        }catch (Exception e){
+            logger.error(String.format("get one product by name=%s:\n",name), e);
+        }
+        return null;
+    }
+
+    @Override
+    public Boolean add(String name, float price, float percent, String picturePath, Integer storeid) {
+        try {
+            Product existProduct = productDao.getOne(name);
+            Product product = new Product(name, picturePath, price, percent, storeid);
+            if(existProduct == null){
+                return productDao.add(product);
+            }else {
+                productDao.update(product);
+                return true;
+            }
+        } catch (Exception e) {
+            logger.error("add product error:\n", e);
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean delete(Integer id) {
+        try {
+            productDao.delete(id);
+            return true;
         } catch (Exception e) {
             logger.error("add product error:\n", e);
         }

@@ -11,27 +11,27 @@ public class Product {
     private float price;
     private float percent;
     private Integer status;
-    private String storeName;
+    private Integer storeid;
 
     public Product() {
     }
 
-    public Product(String name, String picturePath, float price, float percent, String storeName) {
+    public Product(String name, String picturePath, float price, float percent, Integer storeid) {
         this.name = name;
         this.picturePath = picturePath;
         this.price = price;
         this.percent = percent;
-        this.storeName = storeName;
+        this.storeid = storeid;
     }
 
-    public Product(Integer id, String name, String picturePath, float price, float percent, Integer status, String storeName) {
+    public Product(Integer id, String name, String picturePath, float price, float percent, Integer status, Integer storeid) {
         this.id = id;
         this.name = name;
         this.picturePath = picturePath;
         this.price = price;
         this.percent = percent;
         this.status = status;
-        this.storeName = storeName;
+        this.storeid = storeid;
     }
 
     public Integer getId() {
@@ -82,11 +82,11 @@ public class Product {
         this.status = status;
     }
 
-    public String getStoreName() {
-        return storeName;
+    public Integer getStoreid() {
+        return storeid;
     }
 
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
+    public void setStoreid(Integer storeid) {
+        this.storeid = storeid;
     }
 }
