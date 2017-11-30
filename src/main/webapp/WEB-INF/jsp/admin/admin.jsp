@@ -74,6 +74,13 @@
            onclick="addTab('商品发布', '/product/productpost.do','icon-filter')"><img
                 src="/EasyUI/themes/icons/filter.png">商品发布</a><br /> <br />
     </div>
+    <div title="店铺商品展示" data-options="iconCls:'icon-save'"
+         style="padding: 10px;">
+        <a href="#" onclick="addTab('商品展示', '/store/storedisplay.do','icon-filter')"><img
+                src="/EasyUI/themes/icons/filter.png">店铺发布</a><br /> <br />
+        <a href="#" onclick="addTab('二维码生成', '/store/goqrcode.do','icon-filter')"><img
+                src="/EasyUI/themes/icons/filter.png">二维码生成</a><br /> <br />
+    </div>
 </div>
 <div data-options="region:'center',title:'信息中心',split:false" id="tt"
      class="easyui-tabs"

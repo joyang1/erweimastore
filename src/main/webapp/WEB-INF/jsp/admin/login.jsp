@@ -147,7 +147,7 @@
                 }
             },
             error:function(msg){
-                $(".yzmtips").html('Error:'+msg.toSource());
+                $(".codeerror").html('Error:'+msg.toSource());
             }
         })
         return false;
