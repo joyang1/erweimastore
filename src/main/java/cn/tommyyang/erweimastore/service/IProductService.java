@@ -11,6 +11,8 @@ public interface IProductService {
 
     List<Product> get();
 
+    List<Product> get(Integer storeid);
+
     Product getOne(String name);
 
     Boolean add(String name, float price, float percent, String picturePath, Integer storeid);

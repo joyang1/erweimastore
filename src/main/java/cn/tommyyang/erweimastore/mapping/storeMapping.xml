@@ -26,7 +26,7 @@
 
     <!-- 增加数据 -->
     <insert id="addStore" parameterType="cn.tommyyang.erweimastore.model.Store" useGeneratedKeys="true" keyProperty="id">
-        insert into stores(name) values(#{name})
+        insert into stores(name,url) values(#{name},#{url})
     </insert>
 
     <!-- 删除数据 -->

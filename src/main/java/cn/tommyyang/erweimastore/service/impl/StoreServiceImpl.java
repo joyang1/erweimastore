@@ -3,6 +3,7 @@ package cn.tommyyang.erweimastore.service.impl;
 import cn.tommyyang.erweimastore.dao.IStoreDao;
 import cn.tommyyang.erweimastore.model.Store;
 import cn.tommyyang.erweimastore.service.IStoreService;
+import cn.tommyyang.erweimastore.utils.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class StoreServiceImpl implements IStoreService {
     public void add(String name) {
         Store store = new Store();
         store.setName(name);
+        store.setUrl(Constants.StoreDisPlayUrl);
         try {
             storeDao.add(store);
         }catch (Exception e){

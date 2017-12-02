@@ -24,6 +24,15 @@ public class ProductDaoImpl extends BaseDao implements IProductDao {
     }
 
     @Override
+    public List<Product> get(Integer storeid) {
+        SqlSession session = this.getSqlSessionFactory().openSession();
+        List<Product> products = session.selectList("cn.tommyyang.erweimastore.mapping.productMapping.selectProductByStoreId", storeid);
+        session.commit();
+        session.close();
+        return products;
+    }
+
+    @Override
     public Product getOne(String name) {
         SqlSession session = this.getSqlSessionFactory().openSession();
         Product product = session.selectOne("cn.tommyyang.erweimastore.mapping.productMapping.selectProduct", name);

@@ -6,6 +6,7 @@ import cn.tommyyang.erweimastore.model.Product;
 import cn.tommyyang.erweimastore.model.Store;
 import cn.tommyyang.erweimastore.service.IProductService;
 import cn.tommyyang.erweimastore.service.IStoreService;
+import cn.tommyyang.erweimastore.utils.Constants;
 import cn.tommyyang.erweimastore.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -56,13 +58,19 @@ public class ProductController extends BaseController {
                            @RequestParam(value = "percent") float percent,
                            @RequestParam(value = "storeid") Integer storeid,
                            @RequestParam(value = "productimg") MultipartFile productimg) {
-        String tmpPath = request.getRealPath("/") + "temp";
+        String tmpPath = System.getProperty("erweimastore.root") + Constants.IMG_PATH;
+        String imgName = name + "_" + UUID.randomUUID().toString().replaceAll("-", "") + ".png";
+        try {
+            imgName = new String((imgName).getBytes("UTF-8"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            logger.error("imgname to utf-8 code error");
+        }
         try {
             File dir = new File(tmpPath);
             if (!dir.exists()) {
                 dir.mkdirs();
             }
-            String filePath = tmpPath + "\\" + name + "_" + UUID.randomUUID().toString().replaceAll("-", "") + ".png";
+            String filePath = tmpPath + "/" + imgName;
             File file = new File(filePath);
             if (!file.exists()) {
                 file.createNewFile();
@@ -94,13 +102,13 @@ public class ProductController extends BaseController {
     public String delProduct(HttpServletRequest request, HttpServletResponse response,
                              @RequestParam(value = "id") Integer id,
                              @RequestParam(value = "path") String path) {
-        try{
+        try {
             File file = new File(path);
-            if(file.exists()){
+            if (file.exists()) {
                 file.delete();
             }
-        }catch (Exception e){
-            logger.error("delete product error:\n",e);
+        } catch (Exception e) {
+            logger.error("delete product error:\n", e);
             return "0";
         }
         if (productService.delete(id)) {

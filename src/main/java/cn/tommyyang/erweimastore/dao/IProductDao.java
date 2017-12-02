@@ -12,6 +12,8 @@ public interface IProductDao {
 
     List<Product> get();
 
+    List<Product> get(Integer storeid);
+
     Product getOne(String name);
 
     void update(Product product);

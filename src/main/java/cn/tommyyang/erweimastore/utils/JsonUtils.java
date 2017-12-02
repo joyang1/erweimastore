@@ -17,7 +17,8 @@ public class JsonUtils {
         String json = "[";
         for (Store store : list) {
             json += "{\"sid\":\"" + store.getId() + "\",\"sname\":\"" + store.getName() + "\",\"surl\":\""
-                    + store.getUrl() + "\",\"scode\":\""
+                    +"<a href='#' onclick='addTab('商品展示', '"+ String.format(store.getUrl(), store.getId()) +"','icon-filter')'><img" +
+                    " src='/EasyUI/themes/icons/filter.png'>"+ String.format(store.getUrl(), store.getId()) + "</a>\",\"scode\":\""
                     + store.getQrCodePath() + "\"},";
         }
         json = json.substring(0, json.length() - 1);

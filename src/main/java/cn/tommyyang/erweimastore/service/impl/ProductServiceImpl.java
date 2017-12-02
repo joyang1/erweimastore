@@ -28,7 +28,17 @@ public class ProductServiceImpl implements IProductService {
         try {
             return productDao.get();
         }catch (Exception e){
-            logger.error("get all product:\n", e);
+            logger.error("get all product error:\n", e);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> get(Integer storeid) {
+        try {
+            return productDao.get(storeid);
+        }catch (Exception e){
+            logger.error("product by storeid error:\n", e);
         }
         return null;
     }
@@ -38,7 +48,7 @@ public class ProductServiceImpl implements IProductService {
         try {
             return productDao.getOne(name);
         }catch (Exception e){
-            logger.error(String.format("get one product by name=%s:\n",name), e);
+            logger.error(String.format("get one product by name=%s error:\n",name), e);
         }
         return null;
     }

@@ -20,6 +20,10 @@
         select * from products where name = #{name}
     </select>
 
+    <select id="selectProductByStoreId"  resultType="cn.tommyyang.erweimastore.model.Product">
+        select * from products where storeid = #{storeid} and  status = 1
+    </select>
+
     <select id="selectAllProduct"  resultType="cn.tommyyang.erweimastore.model.Product">
         select * from products where status = 1
     </select>
