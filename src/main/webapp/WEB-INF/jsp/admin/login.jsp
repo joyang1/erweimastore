@@ -1,4 +1,4 @@
-<%--
+<%@ page import="cn.tommyyang.erweimastore.utils.Constants" %><%--
   Created by IntelliJ IDEA.
   User: tommy
   Date: 2017/11/20
@@ -9,15 +9,18 @@
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<% String webRoot = Constants.WebRoot;%>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/EasyUI/themes/icon.css" rel="stylesheet" />
-    <link href="/EasyUI/themes/default/easyui.css" rel="stylesheet" />
-    <link href="/css/common.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <script src="/EasyUI/jquery.min.js"></script>
-    <script src="/EasyUI/jquery.easyui.min.js"></script>
-    <script src="/EasyUI/locale/easyui-lang-zh_CN.js"></script>
+    <link href="<%=webRoot%>/EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/EasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=webRoot%>/css/bootstrap.min.css" />
+    <script src="<%=webRoot%>/EasyUI/jquery.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/jquery.easyui.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/locale/easyui-lang-zh_CN.js"></script>
     <style type="text/css">
         #fr {
             text-align: center;
@@ -47,7 +50,7 @@
 %>
 
 <div id="win">
-    <form id="fr" action="/admin/login.do" method="post">
+    <form id="fr" action="<%=webRoot%>/admin/login.do" method="post">
         <div id="loginform">
             <font class="errorfont">
                 <span id="loginerror"><%=logerror%></span>
@@ -62,7 +65,7 @@
                     id="passwd" type="password" name="passwd"
                     class="form-control" placeholder="输入密码">
             </div>
-             <br /> <img id="captchaImage" src="/captcha.do"/>看不清?点击验证码刷新 <br />
+             <br /> <img id="captchaImage" src="<%=webRoot%>/captcha.do"/>看不清?点击验证码刷新 <br />
             <div class="input-group">
                 <span class="input-group-addon">验证码</span> <input type="text"
                                                                   id="code" name="code" class="form-control" placeholder="输入验证码">
@@ -128,7 +131,7 @@
     $("#sm").click(function() {
         var obj = $(this);
         $.ajax({
-            url:'/checkcaptcha.do',
+            url:'<%=webRoot%>/checkcaptcha.do',
             type:'POST',
             data:{code:$.trim($('#code').val())},
             dataType:'json',
@@ -147,7 +150,7 @@
                 }
             },
             error:function(msg){
-                $(".yzmtips").html('Error:'+msg.toSource());
+                $(".codeerror").html('Error:'+msg.toSource());
             }
         })
         return false;
@@ -156,7 +159,7 @@
     // 更换验证码
     $('#captchaImage').click(function()
     {
-        $('#captchaImage').attr("src", "/captcha.do?timestamp=" + (new Date()).valueOf());
+        $('#captchaImage').attr("src", "<%=webRoot%>/captcha.do?timestamp=" + (new Date()).valueOf());
     });
 
 

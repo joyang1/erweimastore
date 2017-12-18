@@ -4,6 +4,7 @@ import cn.tommyyang.erweimastore.model.Product;
 import cn.tommyyang.erweimastore.model.Store;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by TommyYang on 2017/11/23.
@@ -16,7 +17,8 @@ public class JsonUtils {
         String json = "[";
         for (Store store : list) {
             json += "{\"sid\":\"" + store.getId() + "\",\"sname\":\"" + store.getName() + "\",\"surl\":\""
-                    + store.getUrl() + "\",\"scode\":\""
+                    +"<a href='#' onclick='addTab('商品展示', '"+ String.format(store.getUrl(), store.getId()) +"','icon-filter')'><img" +
+                    " src='/EasyUI/themes/icons/filter.png'>"+ String.format(store.getUrl(), store.getId()) + "</a>\",\"scode\":\""
                     + store.getQrCodePath() + "\"},";
         }
         json = json.substring(0, json.length() - 1);
@@ -27,12 +29,12 @@ public class JsonUtils {
     /*
      * 获得商品信息的json数据
      */
-    public static String getProductJson(List<Product> list) {
+    public static String getProductJson(List<Product> list, Map<Integer, Store> map) {
         String json = "[";
         for (Product product : list) {
             json += "{\"pid\":\"" + product.getId() + "\",\"pname\":\"" + product.getName() + "\",\"purl\":\""
-                    + product.getPicturePath() + "\",\"pprice\":\"" + product.getPrice() + "\"" +
-                    ",\"ppercent\":\"" + product.getPercent() + "\",\"pstorename\":\"" + product.getStoreName() + "\"},";
+                    + product.getPicturePath().replace("\\", "/") + "\",\"pprice\":\"" + product.getPrice() + "\"" +
+                    ",\"ppercent\":\"" + product.getPercent() + "\",\"pstorename\":\"" + map.get(product.getStoreid()).getName() + "\"},";
         }
         json = json.substring(0, json.length() - 1);
         json += "]";

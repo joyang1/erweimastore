@@ -9,7 +9,7 @@ CREATE TABLE `admins` (
   `type` varchar(10)  NOT NULL DEFAULT '0' COMMENT '管理员等级',
   `status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0-删除 1-正常',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT '管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '管理员表';
 
 INSERT INTO admins (id, name, nickname, passwd, sex) VALUES (1, 'admin', 'testadmin', '123456', '0');
 
@@ -20,7 +20,7 @@ CREATE TABLE `stores` (
   `qrCodePath` varchar(100) NOT NULL DEFAULT '' COMMENT '店铺二维码路径',
   PRIMARY KEY (`id`),
   UNIQUE (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT '店铺表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '店铺表';
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,7 +29,8 @@ CREATE TABLE `products` (
   `price` FLOAT NOT NULL COMMENT '商品价格',
   `percent` FLOAT NOT NULL COMMENT '商品折扣',
   `status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0-删除 1-正常',
-  `storeName` varchar(100) NOT NULL COMMENT '所属店铺',
+  `storeid` int(11) NOT NULL COMMENT '所属店铺',
   PRIMARY KEY (`id`),
-  UNIQUE (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT '商品表';
+  UNIQUE (`name`),
+  FOREIGN KEY (storeid) REFERENCES stores(id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '商品表';

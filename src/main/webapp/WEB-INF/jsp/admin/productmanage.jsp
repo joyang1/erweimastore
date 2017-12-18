@@ -1,4 +1,4 @@
-<%--
+<%@ page import="cn.tommyyang.erweimastore.utils.Constants" %><%--
   Created by IntelliJ IDEA.
   User: TommyYang
   Date: 2017/11/26
@@ -8,14 +8,15 @@
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<% String webRoot = Constants.WebRoot;%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/EasyUI/themes/icon.css" rel="stylesheet" />
-    <link href="/EasyUI/themes/default/easyui.css" rel="stylesheet" />
-    <link href="/css/common.css" rel="stylesheet">
-    <script src="/EasyUI/jquery.min.js"></script>
-    <script src="/EasyUI/jquery.easyui.min.js"></script>
-    <script src="/EasyUI/locale/easyui-lang-zh_CN.js"></script>
+    <link href="<%=webRoot%>/EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/EasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/css/common.css" rel="stylesheet">
+    <script src="<%=webRoot%>/EasyUI/jquery.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/jquery.easyui.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/locale/easyui-lang-zh_CN.js"></script>
     <title>商品列表</title>
 </head>
 <body>
@@ -30,7 +31,7 @@
         singleSelect : true,
         fitColumns : true,
         pagination: true,
-        url : '/product/getproductinfo.do',
+        url : '<%=webRoot%>/product/getproductinfo.do',
         method: 'get',
         onSelect : function() {
             $('#btn_remove').linkbutton('enable');
@@ -47,7 +48,7 @@
         }, {
             field : 'pname',
             title : '商品名称',
-            width : 80
+            width : 40
         },{
             field : 'purl',
             title : '商品路径',
@@ -63,14 +64,14 @@
         } ,{
             field : 'pstorename',
             title : '所属店铺',
-            width : 20
+            width : 40
         } ] ],
         toolbar : [ {
             iconCls : 'icon-add',
             id : 'btn-add',
             text : '添加',
             handler : function() {
-                window.location.href="/product/productpost.do";
+                window.location.href="<%=webRoot%>/product/productpost.do";
             }
         }, '-', {
             iconCls : 'icon-remove',
@@ -82,13 +83,14 @@
                 $.messager.confirm('提示', '您确定要删除吗？', function(r){
                     if (r){
                         $.ajax({
-                            url : "/product/delproduct.do",
+                            url : "<%=webRoot%>/product/delproduct.do",
                             type : "post",
                             dataType : "json",
                             async : false,
                             //传送请求数据
                             data : {
-                                "id" : row.sid,
+                                "id" : row.pid,
+                                "path" : row.purl
                             },
                             //根据返回值进行状态显示
                             success : function(data) {

@@ -20,18 +20,26 @@
         select * from products where name = #{name}
     </select>
 
+    <select id="selectProductByStoreId"  resultType="cn.tommyyang.erweimastore.model.Product">
+        select * from products where storeid = #{storeid} and  status = 1
+    </select>
+
     <select id="selectAllProduct"  resultType="cn.tommyyang.erweimastore.model.Product">
         select * from products where status = 1
     </select>
 
     <!-- 增加数据 -->
     <insert id="addProduct" parameterType="cn.tommyyang.erweimastore.model.Product" useGeneratedKeys="true" keyProperty="id">
-        insert into products(name,price,percent,picturePath,storeName) values(#{name},#{price},#{percent},#{picturePath},#{storeName})
+        insert into products(name,price,percent,picturePath,storeid) values(#{name},#{price},#{percent},#{picturePath},#{storeid})
     </insert>
 
+    <update id="updateProductForInsert" parameterType="cn.tommyyang.erweimastore.model.Product">
+        update products set status=1,price = #{price},percent = #{percent},picturePath = #{picturePath},storeid = #{storeid} where name = #{name}
+    </update>
+
     <!-- 删除数据 -->
-    <delete id="deleteProduct" parameterType="Integer">
-        delete from products where id = #{id}
-    </delete>
+    <update id="delProduct" parameterType="Integer">
+        update products set status=0 where id = #{id}
+    </update>
 
 </mapper>

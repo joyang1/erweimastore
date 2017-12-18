@@ -18,13 +18,4 @@
 
   <import resource="spring-mybatis.xml"/>
 
-  <bean id="txBeanNameProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-    <property name="beanNames">
-      <list>
-        <value>*Service</value>
-        <value>*Dao</value>
-      </list>
-    </property>
-  </bean>
-
 </beans>

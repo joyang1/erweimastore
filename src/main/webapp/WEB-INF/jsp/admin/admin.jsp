@@ -1,17 +1,20 @@
+<%@ page import="cn.tommyyang.erweimastore.utils.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<% String webRoot = Constants.WebRoot;%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/EasyUI/themes/icon.css" rel="stylesheet" />
-    <link href="/EasyUI/themes/default/easyui.css" rel="stylesheet" />
-    <link href="/css/common.css" rel="stylesheet">
-    <script src="/EasyUI/jquery.min.js"></script>
-    <script src="/EasyUI/jquery.easyui.min.js"></script>
-    <script src="/EasyUI/locale/easyui-lang-zh_CN.js"></script>
-    <script src="/js/time.js" charset="UTF-8"></script>
+    <link href="<%=webRoot%>/EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/EasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="<%=webRoot%>/css/common.css" rel="stylesheet">
+    <script src="<%=webRoot%>/EasyUI/jquery.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/jquery.easyui.min.js"></script>
+    <script src="<%=webRoot%>/EasyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script src="<%=webRoot%>/js/time.js"></script>
     <title>管理员管理界面</title>
     <style type="text/css">
         .infofont {
@@ -61,18 +64,23 @@
     <div title="店铺商品管理" data-options="iconCls:'icon-save'"
          style="padding: 10px;">
         <a href="#"
-           onclick="addTab('店铺管理', '/store/storemanage.do','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">店铺管理</a><br /> <br /> <a
-            href="#" onclick="addTab('商品管理', '/product/productmanage.do')"><img
-            src="/EasyUI/themes/icons/filter.png">商品管理</a><br /> <br />
+           onclick="addTab('店铺管理', '<%=webRoot%>/store/storemanage.do','icon-filter')"><img
+                src="<%=webRoot%>/EasyUI/themes/icons/filter.png">店铺管理</a><br /> <br /> <a
+            href="#" onclick="addTab('商品管理', '<%=webRoot%>/product/productmanage.do')"><img
+            src="<%=webRoot%>/EasyUI/themes/icons/filter.png">商品管理</a><br /> <br />
     </div>
     <div title="店铺商品发布" data-options="iconCls:'icon-save'"
          style="padding: 10px;">
-        <a href="#" onclick="addTab('店铺发布', '/store/storepost.do','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">店铺发布</a><br /> <br />
+        <a href="#" onclick="addTab('店铺发布', '<%=webRoot%>/store/storepost.do','icon-filter')"><img
+                src="<%=webRoot%>/EasyUI/themes/icons/filter.png">店铺发布</a><br /> <br />
         <a href="#"
-           onclick="addTab('商品发布', '/product/productpost.do','icon-filter')"><img
-                src="/EasyUI/themes/icons/filter.png">商品发布</a><br /> <br />
+           onclick="addTab('商品发布', '<%=webRoot%>/product/productpost.do','icon-filter')"><img
+                src="<%=webRoot%>/EasyUI/themes/icons/filter.png">商品发布</a><br /> <br />
+    </div>
+    <div title="店铺商品展示" data-options="iconCls:'icon-save'"
+         style="padding: 10px;">
+        <a href="#" onclick="addTab('二维码生成', '<%=webRoot%>/store/goqrcode.do','icon-filter')"><img
+                src="<%=webRoot%>/EasyUI/themes/icons/filter.png">二维码生成</a><br /> <br />
     </div>
 </div>
 <div data-options="region:'center',title:'信息中心',split:false" id="tt"
