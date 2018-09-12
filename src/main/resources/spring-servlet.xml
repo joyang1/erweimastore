@@ -29,11 +29,11 @@
     </bean>
 
     <!-- view resolver -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"></property>
-        <property name="suffix" value=".jsp"></property>
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/"></property>-->
+        <!--<property name="suffix" value=".jsp"></property>-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>-->
+    <!--</bean>-->
 
     <!-- spring mvc整合json，处理JSON数据转换的 -->
     <bean id="mappingJacksonHttpMessageConverter"
